@@ -1,0 +1,39 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+        <input type="text" *ngIf="enq.EnqId==0" class="form-control" [(ngModel)]="CustName" placeholder="Please enter your name">
+        <label *ngIf="enq.EnqId!=0" >{{CustName}}</label>
+    </div>
+    
+</div>
+<div class="form-froup row mt-2">
+
+    <label class="col-sm-2 col-form-label">Contact</label>
+    <div class="col-sm-10">
+        <input type="text" *ngIf="enq.EnqId==0" class="form-control" [(ngModel)]="CustContact" placeholder="Please enter your Phone">
+        <label *ngIf="enq.EnqId!=0" >{{CustContact}}</label>
+    </div>
+    
+</div>
+<div class="form-froup row mt-2">
+
+    <label class="col-sm-2 col-form-label">City</label>
+    <div class="col-sm-10">
+        <input type="text" *ngIf="enq.EnqId==0" class="form-control" [(ngModel)]="CustCity" placeholder="Please enter your City">
+        <label *ngIf="enq.EnqId!=0">{{CustCity}}</label>
+    </div>
+    
+</div>
+<div *ngIf="enq.EnqId!=0" class="form-froup row mt-2">
+
+    <label class="col-sm-2 col-form-label">New Enq Stat</label>
+    <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="IsAttended" placeholder="New Stat">
+        
+    </div>
+    
+</div>
+
+<button (click)="addCustEnq()" *ngIf="enq.EnqId==0" class="btn btn-primary">Place Enq</button>
+<button (click)="updateCustEnq()" *ngIf="enq.EnqId!=0" class="btn btn-primary">Update Enq Stat</button>  

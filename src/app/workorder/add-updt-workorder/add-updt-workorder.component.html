@@ -1,0 +1,34 @@
+<div class="form-froup row" >
+    <label class="col-sm-2 col-form-label">CustId</label>
+    <input type="text" *ngIf="work.workId==0"  class="form-control" [(ngModel)]="CustId" placeholder="Please enter your name">
+    <label class="col-sm-2 col-form-label" *ngIf="work.workId!=0" >{{CustId}}</label>
+</div>
+
+<div class="form-froup row mt-2" >
+    <label class="col-sm-2 col-form-label">WorkDetails</label>
+    <input type="text" *ngIf="work.workId==0 " class="form-control" [(ngModel)]="WorkDetails" placeholder="Work Order details">
+    <label class="col-sm-2 col-form-label" *ngIf="work.workId!=0" >{{WorkDetails}}</label>
+</div>
+
+<div class="form-froup row mt-2" >
+    <label class="col-sm-2 col-form-label">Kw</label>
+    <input type="text" *ngIf="work.workId==0 " class="form-control" [(ngModel)]="Kw" placeholder="Please enter your City">
+    <label class="col-sm-2 col-form-label" *ngIf="work.workId!=0">{{Kw}}</label>
+</div>
+
+<div *ngIf="work.workId!=0" class="form-froup row mt-2">
+    <label class="col-sm-2 col-form-label">Work Stat</label>
+    <input type="text" *ngIf="tork.flagNote==0" class="form-control" [(ngModel)]="WorkStat" placeholder="New Stat">
+    <label *ngIf="tork.flagNote==1" class="col-sm-2 col-form-label">{{WorkStat}}</label>
+</div>
+
+<div *ngIf="tork.flagNote==1" class="form-froup row mt-2">
+    <label class="col-sm-2 col-form-label">New Note</label>
+    <input type="text" [(ngModel)]="note" class="form-control"  placeholder="Add Note">
+</div>
+
+
+
+<button (click)="addCWorkOrder()" *ngIf="work.workId==0" class="btn btn-primary">Add WorkOrder</button>
+<button (click)="updateWorkOrder()" *ngIf="work.workId!=0 && tork.flagNote==0" class="btn btn-primary">Update work Stat</button>  
+<button (click)="addNote()" *ngIf="tork.flagNote==1" class="btn btn-primary">Update work Stat</button>  
